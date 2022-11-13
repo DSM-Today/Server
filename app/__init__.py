@@ -6,6 +6,7 @@ from app.core.suggestion import suggest_router
 from app.core.suggestion.book import book_router
 from app.core.suggestion.food import food_router
 from app.core.suggestion.webtoon import webtoon_router
+from app.core.suggestion.music import music_router
 
 from app.core.information import information_router
 from app.core.information.news import news_router
@@ -28,6 +29,7 @@ def create_app():
     app.include_router(book_router)
     app.include_router(food_router)
     app.include_router(webtoon_router)
+    app.include_router(music_router)
 
     # random
     app.include_router(random_router)
