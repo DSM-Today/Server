@@ -19,19 +19,29 @@ class Movie:
         }:
         '''
 
-        movie = self._driver.find_element(By.XPATH, '//*[@id="main_section01"]/div[2]/div[2]/ol/li[1]')
+        movie = self._driver.find_element(By.XPATH, '//*[@id="main_section01"]/div[2]/div[2]/ol/li[3]')
 
-        image = movie.find_element(By.XPATH, '//*[@id="main_section01"]/div[2]/div[2]/ol/li[1]/a/img').get_attribute(
+        image = movie.find_element(By.XPATH, '//*[@id="main_section01"]/div[2]/div[2]/ol/li[3]/a/img').get_attribute(
             'src')
-        name = movie.find_element(By.XPATH, '//*[@id="main_section01"]/div[2]/div[2]/ol/li[1]/a/img').get_attribute(
+        name = movie.find_element(By.XPATH, '//*[@id="main_section01"]/div[2]/div[2]/ol/li[3]/a/img').get_attribute(
             'alt')
 
-        movie.find_element(By.XPATH, '//*[@id="main_section01"]/div[2]/div[2]/ol/li[1]/div/div/a').click()
+        content = movie.find_element(By.XPATH, '//*[@id="main_section01"]/div[2]/div[2]/ol/li[3]/a/div[2]/div[1]') \
+            .get_attribute('innerHTML')
+
+        content = content.replace(' ', '@').translate(str.maketrans('\n\t<br>', '      ')).replace(' ', '').replace('@',
+                                                                                                                    ' ')
+
+        movie.find_element(By.XPATH, '//*[@id="main_section01"]/div[2]/div[2]/ol/li[3]/div/div/a').click()
 
         url = self._driver.current_url
 
         return {
             'name': name,
             'url': url,
-            'image_path': image
+            'image_path': image,
+            'content': content
         }
+
+
+movie_crawler = Movie()
