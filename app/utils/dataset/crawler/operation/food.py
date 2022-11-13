@@ -44,3 +44,6 @@ class Food:
         html = requests.get(url)
         soup = bs(html.text, "html.parser")
         return soup.find_all('img')[1]['src']
+
+
+food_crawler = Food()
