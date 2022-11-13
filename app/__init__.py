@@ -2,6 +2,8 @@ from fastapi import FastAPI
 
 from app.core.auth import auth_router
 
+from app.core.suggestion import suggest_router
+
 from app.core.information import information_router
 from app.core.information.news import news_router
 from app.core.information.lotto import lotto_router
@@ -17,6 +19,9 @@ def create_app():
     )
 
     app.include_router(auth_router)
+
+    # suggest
+    app.include_router(suggest_router)
 
     # random
     app.include_router(random_router)
