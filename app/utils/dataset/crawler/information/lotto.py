@@ -41,7 +41,7 @@ class Lotto:
         turn, date = round_scope.text.split()
         return {
             'round': turn,
-            'date': date
+            'date': date[1:-1]
         }
 
     @staticmethod
@@ -55,6 +55,9 @@ class Lotto:
 
         winning_amount = winner_info.find('p').text
 
-        result['winning_amount'] = winning_amount[winning_amount.find('('):]
+        result['winning_amount'] = winning_amount[winning_amount.find('('):][1:-1]
 
         return result
+
+
+lotto_crawler = Lotto()

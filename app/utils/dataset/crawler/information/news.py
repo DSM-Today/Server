@@ -29,8 +29,11 @@ class News:
         title = arr[0].find_next("div", class_="cjs_t").text
         content = arr[0].find_next("p", class_="cjs_d").text
         return {
-            'link': link,
+            'direct_url': link,
             'image_path': image,
             'title': title,
             'content': content
         }
+
+
+news_crawler = News()

@@ -59,3 +59,6 @@ class Lucky:
 
     def _parse(self, response_html: str):
         return bs4(response_html, 'lxml').find(class_='text _cs_fortune_text').contents[0]
+
+
+luck_crawler = Lucky()
