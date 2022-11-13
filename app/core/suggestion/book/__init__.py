@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, status
 
 from app.utils.security import oauth2_scheme
 
-from app.core.suggestion.book.service import query_book
+from app.core.suggestion.book.service import query_book, add_book_to_bookmark, delete_my_book_bookmark
 
 book_router = APIRouter(
     prefix='/suggest/book'
@@ -16,9 +16,9 @@ def get_book():
 
 @book_router.post('/', status_code=status.HTTP_201_CREATED)
 def add_book_bookmark(token: str = Depends(oauth2_scheme)):
-    pass
+    add_book_to_bookmark(token)
 
 
-@book_router.post('/', status_code=status.HTTP_204_NO_CONTENT)
+@book_router.delete('/', status_code=status.HTTP_204_NO_CONTENT)
 def delete_book_bookmark(token: str = Depends(oauth2_scheme)):
-    pass
+    delete_my_book_bookmark(token)
