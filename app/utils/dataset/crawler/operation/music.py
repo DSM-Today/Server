@@ -61,13 +61,12 @@ class Music:
         track = playlist_detail['trackList'][random_int]
         return {
             'situation': self._situation,
-            'playlist_provider': playlist_detail['creator']['name'],
-            'playlist_direct_url': f"https://www.music-flo.com/search/theme?keyword={playlist_detail['name']}&sortType=ACCURACY",
-            'is_adult': True if track['adultAuthYn'] == 'Y' else False,
+            'direct_url': f"https://www.music-flo.com/search/theme?keyword={playlist_detail['name']}&sortType=ACCURACY",
             'image_path': track['album']['imgList'][2]['url'],
-            'album_name': track['album']['title'],
-            'released_at': track['album']['releaseYmd'],
+            'published_at': track['album']['releaseYmd'],
             'title': track['name'],
-            'play_time': track['playTime'],
             'song_writer': track['representationArtist']['name']
         }
+
+
+music_crawler = Music()
