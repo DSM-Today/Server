@@ -1,4 +1,4 @@
-from uuid import uuid4
+from uuid import uuid4, UUID
 from fastapi import status, Response
 
 from app.utils.security.oauth import provide_oauth
@@ -10,7 +10,7 @@ from app.utils.type_changer import str_to_date
 from app.utils.security.token import generate_access_token, generate_refresh_token
 
 from app.utils.dao.cqrs.user.command import save_user
-from app.utils.dao.cqrs.user.query import user_exist_by_email
+from app.utils.dao.cqrs.user.query import user_exist_by_email, query_id_by_email
 
 
 def query_oauth_link(oauth_type: str):
@@ -45,8 +45,9 @@ def register_or_login(oauth_type: str, code: str, response: Response):  # respon
         response.status_code = status.HTTP_201_CREATED
     else:
         response.status_code = status.HTTP_200_OK
+        user_id = query_id_by_email(email)
 
     return {
-        'access_token': generate_access_token(user_id.hex),
-        'refresh_token': generate_refresh_token(user_id.hex)
+        'access_token': generate_access_token(UUID(user_id).hex),
+        'refresh_token': generate_refresh_token(UUID(user_id).hex)
     }
