@@ -7,7 +7,7 @@ from app.utils.security.token import get_user_id
 from app.utils.dataset.crawler.information.lotto import lotto_crawler
 
 from app.utils.dao.cqrs.subject.comand import create_subject
-from app.utils.dao.cqrs.bookmark.command import create_bookmark, delete_bookmark_by_user_id
+from app.utils.dao.cqrs.bookmark.command import create_bookmark, delete_bookmark_by_user_id_and_name
 
 
 def query_lotto():
@@ -25,4 +25,4 @@ def insert_lotto_bookmark(token: str):
 
 def delete_my_lotto_bookmark(token: str):
     user_id = UUID(get_user_id(token)).hex
-    delete_bookmark_by_user_id(user_id, 'LOTTO')
+    delete_bookmark_by_user_id_and_name(user_id, 'LOTTO')

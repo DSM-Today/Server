@@ -3,7 +3,7 @@ from uuid import uuid4, UUID
 from app.utils.security.token import get_user_id
 
 from app.utils.dao.cqrs.subject.comand import create_subject
-from app.utils.dao.cqrs.bookmark.command import create_bookmark, delete_bookmark_by_user_id
+from app.utils.dao.cqrs.bookmark.command import create_bookmark, delete_bookmark_by_user_id_and_name
 
 from app.utils.dataset.crawler.information.news import news_crawler
 
@@ -31,7 +31,7 @@ def insert_news_bookmark(token: str):
 def delete_my_news_bookmark(token: str):
     user_id = UUID(get_user_id(token)).hex
 
-    delete_bookmark_by_user_id(user_id, 'NEWS')
+    delete_bookmark_by_user_id_and_name(user_id, 'NEWS')
 
 
 
