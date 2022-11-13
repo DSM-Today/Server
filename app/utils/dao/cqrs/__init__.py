@@ -12,7 +12,8 @@ class DAO:
 
     def __init__(self):
         self.__engine = self.__create_engine()
-        self.__session = self.__create_session(self.__engine)()
+
+    #        self.__session = self.__create_session(self.__engine)()
 
     @staticmethod
     def __create_engine() -> Engine:
@@ -33,13 +34,18 @@ class DAO:
 
     @contextmanager
     def session_scope(self) -> Session:
+        session = self.__create_session(self.__engine)()
         try:
-            yield self.__session
-            self.__session.commit()
+            yield session
+            session.commit()
         except:
-            self.__session.rollback()
+            session.rollback()
         finally:
-            self.__session.close()
+            session.close()
+
+    @contextmanager
+    def execute_query(self):
+        yield self.__engine
 
 
 dao = DAO()
