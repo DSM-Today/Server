@@ -20,6 +20,7 @@ class JWTConfig:
     SECRET_KEY = os.environ['SECRET_KEY']
     ACCESS_NAME = os.environ['ACCESS_NAME']
     REFRESH_NAME = os.environ['REFRESH_NAME']
+    ALGORITHM = os.environ['ALGORITHM']
 
 
 class GoogleConfig:
