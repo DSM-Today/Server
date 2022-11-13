@@ -19,13 +19,12 @@ class WebToon:
         '''
         :return {
             is_adult: 18세 이상 판별 !문구!
-            rank: 해당 요일에서의 순위
             is_working: '연재' 또는 '휴재' 라는 !문구!
             direct_url: 바로 가기
             title: 제목
             image_path: 이미지 경로
             writer: 작가
-            introduction: 소개글
+            comment: 소개글
             genre: 장르
         }:
         '''
@@ -49,13 +48,12 @@ class WebToon:
 
         return {
             'is_adult': chosen_toon['g_rated'],
-            'rank': rank,
             'is_working': chosen_toon['published'],
             'direct_url': chosen_toon['direct_url'],
             'title': chosen_toon['title'],
             'image_path': chosen_toon['image_path'],
             'writer': content.find(class_='wrt_nm').text.strip(),
-            'introduction': content.find('p').text.strip(),
+            'comment': content.find('p').text.strip(),
             'genre': content.find(class_='genre').text.strip()
         }
 
@@ -75,3 +73,5 @@ class WebToon:
 
         return toon_list
 
+
+webtoon_crawler = WebToon()
