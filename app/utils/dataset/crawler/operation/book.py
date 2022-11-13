@@ -48,13 +48,14 @@ class Book:
     def _get_book_information(random_book_info: dict):
         return {
             'review_amount': random_book_info['buyRevwNumc'],
-            'review_score': random_book_info['buyRevwRvgr'],
+            'score': random_book_info['buyRevwRvgr'],
             'writer': random_book_info['chrcName'],
-            'name': random_book_info['cmdtName'],
-            'introduction': random_book_info['inbukCntt'],
+            'title': random_book_info['cmdtName'],
+            'comment': random_book_info['inbukCntt'],
             'publisher': random_book_info['pbcmName'],
-            'published_at': random_book_info['rlseDate'],
-            'page': random_book_info['upntAcmlAmnt'],
             'direct_url': 'https://product.kyobobook.co.kr/detail/' + random_book_info['saleCmdtid'],
             'image_path': f'https://contents.kyobobook.co.kr/sih/fit-in/100x0/pdt/{random_book_info["cmdtCode"]}.jpg'
         }
+
+
+book_crawler = Book()
