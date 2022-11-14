@@ -12,7 +12,9 @@ from app.utils.security.token import generate_access_token, generate_refresh_tok
 def query_client_id(oauth_type: str):
     oauth = provide_oauth(oauth_type)
 
-    return duc_query_client_id(oauth)
+    return {
+        "client_id": duc_query_client_id(oauth)
+    }
 
 
 def register_or_login(oauth_type: str, id_token: str):
@@ -33,7 +35,6 @@ def register_or_login(oauth_type: str, id_token: str):
         user_id = query_id_by_email(user_info['email'])
 
         user = query_user_by_id(user_id)
-
 
     return {
         "is_birthday_exist": False if user.birth_day is None else True,
