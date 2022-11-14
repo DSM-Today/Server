@@ -6,10 +6,6 @@ from app.config import get_chromedriver_path
 
 class Movie:
 
-    def __init__(self):
-        self._driver = webdriver.Chrome(get_chromedriver_path())
-        self._driver.get("https://www.megabox.co.kr/")
-
     def crawl(self):
         '''
         :return {
@@ -18,8 +14,10 @@ class Movie:
             iamge_path: 사진 경로
         }:
         '''
+        driver = webdriver.Chrome(get_chromedriver_path())
+        driver.get("https://www.megabox.co.kr/")
 
-        movie = self._driver.find_element(By.XPATH, '//*[@id="main_section01"]/div[2]/div[2]/ol/li[3]')
+        movie = driver.find_element(By.XPATH, '//*[@id="main_section01"]/div[2]/div[2]/ol/li[3]')
 
         image = movie.find_element(By.XPATH, '//*[@id="main_section01"]/div[2]/div[2]/ol/li[3]/a/img').get_attribute(
             'src')
@@ -34,7 +32,7 @@ class Movie:
 
         movie.find_element(By.XPATH, '//*[@id="main_section01"]/div[2]/div[2]/ol/li[3]/div/div/a').click()
 
-        url = self._driver.current_url
+        url = driver.current_url
 
         return {
             'name': name,
