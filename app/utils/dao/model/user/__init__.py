@@ -10,6 +10,6 @@ class User(Base):
     email = Column(VARCHAR(30), nullable=False, unique=True)
     name = Column(CHAR(5), nullable=False)
     image_path = Column(VARCHAR(255), nullable=False)
-    introduce = Column(TEXT, nullable=True)
-    birth_day = Column(DATE, nullable=False)
+    introduce = Column(VARCHAR(255), nullable=True)
+    birth_day = Column(DATE, nullable=True)
     can_person = Column(BOOLEAN, nullable=False, default=False)
