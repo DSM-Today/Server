@@ -2,6 +2,8 @@ from fastapi import FastAPI
 
 from app.core.auth import auth_router
 
+from app.core.user import user_router
+
 from app.core.suggestion import suggest_router
 from app.core.suggestion.book import book_router
 from app.core.suggestion.food import food_router
@@ -23,7 +25,11 @@ def create_app():
         redoc_url='/redoc'
     )
 
+    # auth
     app.include_router(auth_router)
+
+    # user
+    app.include_router(user_router)
 
     # suggest
     app.include_router(suggest_router)
