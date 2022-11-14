@@ -19,3 +19,8 @@ def query_id_by_email(email: str):
 def query_user_birth_by_id(_id: UUID.hex) -> date:
     with dao.session_scope() as session:
         return session.query(User.birth_day).filter(User.id == UUID(_id).bytes).one()['birth_day']
+
+
+def query_user_by_id(_id: UUID.hex):
+    with dao.session_scope() as session:
+        return session.query(User).filter(User.id == UUID(_id).bytes).one()
