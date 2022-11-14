@@ -5,7 +5,7 @@ from app.utils.security import oauth2_scheme
 from app.core.suggestion.movie.service import query_movie, add_movie_to_bookmark, delete_my_movie_bookmark
 
 movie_router = APIRouter(
-    prefix='/suggest/food'
+    prefix='/suggest/movie'
 )
 
 
