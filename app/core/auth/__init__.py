@@ -1,8 +1,6 @@
 from fastapi import APIRouter
 from fastapi import status
-from app.core.auth.service import query_oauth_link, register_or_login
-
-from fastapi import Response
+from app.core.auth.service import query_client_id, register_or_login
 
 auth_router = APIRouter(
     prefix='/auth'
@@ -11,9 +9,9 @@ auth_router = APIRouter(
 
 @auth_router.get('/oauth/{service_type}')
 def get_oauth_link(service_type: str):
-    return query_oauth_link(service_type)
+    return query_client_id(service_type)
 
 
-@auth_router.get('/oauth/{service_type}/code', status_code=status.HTTP_201_CREATED)
-def get_code(service_type: str, code: str, response: Response):
-    return register_or_login(service_type, code, response)
+@auth_router.post('/oauth/{service_type}', status_code=status.HTTP_201_CREATED)
+def get_code(service_type: str, id_token: str):
+    return register_or_login(service_type, id_token)
