@@ -1,5 +1,5 @@
 from uuid import UUID
-from app.utils.dao.cqrs.user.query import user_exist_by_email, query_id_by_email
+from app.utils.dao.cqrs.user.query import user_exist_by_email, query_id_by_email, query_user_by_id
 
 from app.utils.dao.cqrs.user.command import save_user
 
@@ -21,17 +21,24 @@ def register_or_login(oauth_type: str, id_token: str):
     user_info = oauth.check_id_token_verify(id_token)
 
     if user_exist_by_email(user_info['email']) is None:
-        user_id = save_user(
+        user = save_user(
             email=user_info['email'],
             name=user_info['name'],
             image_path=user_info['picture'],
             can_person=False
-        ).id.hex()
+        )
+
 
     else:
         user_id = query_id_by_email(user_info['email'])
 
+        user = query_user_by_id(user_id)
+
+
     return {
-        "access_token": generate_access_token(UUID(user_id).hex),
-        "refresh_token": generate_refresh_token(UUID(user_id).hex)
+        "is_birthday_exist": False if user.birth_day is None else True,
+        "is_can_person": False if user.can_person in [None, False] else True,
+        "is_introduce_exist": False if user.introduce is None else True,
+        "access_token": generate_access_token(user.id.hex()),
+        "refresh_token": generate_refresh_token(user.id.hex())
     }
