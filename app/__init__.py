@@ -11,6 +11,7 @@ from app.core.suggestion.food import food_router
 from app.core.suggestion.webtoon import webtoon_router
 from app.core.suggestion.music import music_router
 from app.core.suggestion.movie import movie_router
+from app.core.suggestion.menu import menu_router
 
 from app.core.information import information_router
 from app.core.information.news import news_router
@@ -40,6 +41,7 @@ def create_app():
     app.include_router(webtoon_router)
     app.include_router(music_router)
     app.include_router(movie_router)
+    app.include_router(menu_router)
 
     # random
     app.include_router(random_router)
