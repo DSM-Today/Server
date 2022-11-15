@@ -1,5 +1,5 @@
 from uuid import UUID
-from  datetime import date
+from datetime import date
 
 from app.utils.dao.cqrs import dao
 
@@ -24,3 +24,8 @@ def query_user_birth_by_id(_id: UUID.hex) -> date:
 def query_user_by_id(_id: UUID.hex):
     with dao.session_scope() as session:
         return session.query(User).filter(User.id == UUID(_id).bytes).one()
+
+
+def query_user_by_email(email: str):
+    with dao.session_scope() as session:
+        return session.query(User).filter(User.email == email).one()
