@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.core.auth import auth_router
+from app.core.auth.oauth import oauth_router
 
 from app.core.user import user_router
 
@@ -26,7 +26,7 @@ def create_app():
     )
 
     # auth
-    app.include_router(auth_router)
+    app.include_router(oauth_router)
 
     # user
     app.include_router(user_router)
