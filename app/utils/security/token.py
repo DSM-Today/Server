@@ -40,6 +40,10 @@ def get_user_id(token: str):
     return __decode_jwt(token)['uid']
 
 
+def is_refresh_token(token: str):
+    return __decode_jwt(token)['sub'] == JWTConfig.REFRESH_NAME
+
+
 def check_role(token: str, role_list: list):
     def decorator_impl(func):
         def wrapper():
