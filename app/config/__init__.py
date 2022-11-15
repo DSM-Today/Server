@@ -20,8 +20,8 @@ class RedisConfig:
 
 
 class JWTConfig:
-    ACCESS_EXPIRE = os.environ['ACCESS_EXPIRE']
-    REFRESH_EXPIRE = os.environ['REFRESH_EXPIRE']
+    ACCESS_EXPIRE = int(os.environ['ACCESS_EXPIRE'])
+    REFRESH_EXPIRE = int(os.environ['REFRESH_EXPIRE'])
     SECRET_KEY = os.environ['SECRET_KEY']
     ACCESS_NAME = os.environ['ACCESS_NAME']
     REFRESH_NAME = os.environ['REFRESH_NAME']
