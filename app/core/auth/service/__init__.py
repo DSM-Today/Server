@@ -2,7 +2,7 @@ from fastapi import Response
 
 from app.utils.dao.mysql.cqrs.user.query import user_exist_by_email, query_user_by_email
 
-from app.utils.dao.mysql.cqrs import save_user
+from app.utils.dao.mysql.cqrs.user.command import save_user
 
 from app.utils.security.oauth import provide_oauth
 from app.utils.security.oauth.impl import duc_query_client_id
