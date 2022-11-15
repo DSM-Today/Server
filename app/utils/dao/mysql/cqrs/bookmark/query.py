@@ -1,6 +1,6 @@
 from uuid import UUID
 
-from app.utils.dao.cqrs import dao
+from app.utils.dao.mysql.cqrs import dao
 from sqlalchemy.sql import text
 
 

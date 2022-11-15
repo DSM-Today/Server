@@ -1,6 +1,6 @@
 from sqlalchemy import Column, BINARY, CHAR
 
-from app.utils.dao.model import Base
+from app.utils.dao.mysql.model import Base
 
 
 class Subject(Base):

@@ -1,4 +1,4 @@
-from app.utils.dao.cqrs import dao
+from app.utils.dao.mysql.cqrs import dao
 
 from sqlalchemy import text
 

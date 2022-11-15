@@ -1,9 +1,9 @@
 from uuid import UUID
 from datetime import date
 
-from app.utils.dao.cqrs import dao
+from app.utils.dao.mysql.cqrs import dao
 
-from app.utils.dao.model.user import User
+from app.utils.dao.mysql.model.user import User
 
 
 def user_exist_by_email(email: str):

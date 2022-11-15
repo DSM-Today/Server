@@ -1,8 +1,8 @@
 from uuid import uuid4, UUID
 from datetime import date
 
-from app.utils.dao.cqrs import dao
-from app.utils.dao.model.user import User
+from app.utils.dao.mysql.cqrs import dao
+from app.utils.dao.mysql.model.user import User
 
 
 def save_user(email: str, name: str, image_path: str, can_person: bool):
