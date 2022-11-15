@@ -1,8 +1,10 @@
-from fastapi import APIRouter
-from fastapi import status
-from app.core.auth.service import query_client_id, register_or_login
+from fastapi import APIRouter, Response, status
+
+from app.core.auth.dto import DTO
 
 from app.utils import show_reason
+
+from app.core.auth.service import query_client_id, register_or_login
 
 auth_router = APIRouter(
     prefix='/auth'
@@ -17,5 +19,5 @@ def get_oauth_link(service_type: str):
 
 @auth_router.post('/oauth/{service_type}', status_code=status.HTTP_201_CREATED)
 @show_reason
-def get_code(service_type: str, id_token: str):
-    return register_or_login(service_type, id_token)
+def get_code(service_type, request: DTO.IdTokenRequest, response: Response):
+    return register_or_login(service_type, request.id_token, response)

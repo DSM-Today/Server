@@ -1,5 +1,6 @@
-from uuid import UUID
-from app.utils.dao.cqrs.user.query import user_exist_by_email, query_id_by_email, query_user_by_id
+from fastapi import Response
+
+from app.utils.dao.cqrs.user.query import user_exist_by_email, query_id_by_email, query_user_by_email
 
 from app.utils.dao.cqrs.user.command import save_user
 
@@ -17,7 +18,7 @@ def query_client_id(oauth_type: str):
     }
 
 
-def register_or_login(oauth_type: str, id_token: str):
+def register_or_login(oauth_type: str, id_token: str, response: Response):
     oauth = provide_oauth(oauth_type)
 
     user_info = oauth.check_id_token_verify(id_token)
@@ -30,11 +31,12 @@ def register_or_login(oauth_type: str, id_token: str):
             can_person=False
         )
 
+        response.status_code = 201
 
     else:
-        user_id = query_id_by_email(user_info['email'])
+        user = query_user_by_email(user_info['email'])
 
-        user = query_user_by_id(user_id)
+        response.status_code = 200
 
     return {
         "is_birthday_exist": False if user.birth_day is None else True,
