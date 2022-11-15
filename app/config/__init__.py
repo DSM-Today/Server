@@ -14,6 +14,11 @@ class DatabaseConfig:
     DATABASE_URL = os.environ['DATABASE_URL']
 
 
+class RedisConfig:
+    HOST = os.environ['REDIS_HOST']
+    PORT = os.environ['REDIS_PORT']
+
+
 class JWTConfig:
     ACCESS_EXPIRE = os.environ['ACCESS_EXPIRE']
     REFRESH_EXPIRE = os.environ['REFRESH_EXPIRE']
