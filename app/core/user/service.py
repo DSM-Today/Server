@@ -2,10 +2,10 @@ from datetime import date
 
 from app.utils.security.token import get_user_id
 
-from app.utils.dao.cqrs.user.query import query_user_by_id
-from app.utils.dao.cqrs.user.command import initialize_user_info
+from app.utils.dao.mysql.cqrs.user.query import query_user_by_id
+from app.utils.dao.mysql.cqrs import initialize_user_info
 
-from app.utils.dao.cqrs.bookmark.query import query_my_bookmark_list_by_id
+from app.utils.dao.mysql.cqrs.bookmark import query_my_bookmark_list_by_id
 
 
 def query_my_bookmark_list(token: str):

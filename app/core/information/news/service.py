@@ -2,8 +2,8 @@ from uuid import uuid4, UUID
 
 from app.utils.security.token import get_user_id
 
-from app.utils.dao.cqrs.subject.comand import create_subject
-from app.utils.dao.cqrs.bookmark.command import create_bookmark, delete_bookmark_by_user_id_and_name
+from app.utils.dao.mysql.cqrs.subject.comand import create_subject
+from app.utils.dao.mysql.cqrs.bookmark import create_bookmark, delete_bookmark_by_user_id_and_name
 
 from app.utils.dataset.crawler.information.news import news_crawler
 
