@@ -12,9 +12,14 @@ def show_reason(func):
             return func(*args, **kwargs)
 
         except:
+            ex_class, ex_object, ex_index = sys.exc_info()
+
+            if isinstance(ex_object, HTTPException):
+                raise ex_object
+
             raise HTTPException(
                 status_code=500,
-                detail=str(sys.exc_info()[0].__name__) + ' :: ' + str(sys.exc_info()[1])
+                detail=str(ex_class.__name__) + ' :: ' + str(ex_object)
             )
 
     return wrapper
