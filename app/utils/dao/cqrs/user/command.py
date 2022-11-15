@@ -16,3 +16,14 @@ def save_user(email: str, name: str, image_path: str, can_person: bool):
         )
         session.add(user)
         return user
+
+
+def initialize_user_info(user_id: UUID.hex, introduce: str, birth_day: date, can_person: bool):
+    with dao.session_scope() as session:
+        session.query(User).filter(User.id == UUID(user_id).bytes).update(
+            {
+                'can_person': can_person,
+                'birth_day': birth_day,
+                'introduce': introduce
+            }
+        )
