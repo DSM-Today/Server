@@ -27,3 +27,15 @@ def initialize_user_info(user_id: UUID.hex, introduce: str, birth_day: date, can
                 'introduce': introduce
             }
         )
+
+
+def update_user_profile_by_id(user_id: UUID.hex, name: str, image_path: str, birth_day: date, introduce: str):
+    with dao.session_scope() as session:
+        session.query(User).filter(User.id == UUID(user_id).bytes).update(
+            {
+                'name': name if name not in [None, '', ' '] else User.name,
+                'introduce': introduce,
+                'birth_day': birth_day if birth_day is not None else User.birth_day,
+                'image_path': image_path if image_path is not None else User.image_path
+            }
+        )
