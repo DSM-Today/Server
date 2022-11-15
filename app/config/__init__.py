@@ -25,8 +25,3 @@ class JWTConfig:
 
 class GoogleConfig:
     CLIENT_ID = os.environ['GOOGLE_OAUTH_CLIENT_ID']
-    SECRET_KEY = os.environ['GOOGLE_OAUTH_SECRET']
-    CODE_URI = os.environ['GOOGLE_CODE_URL']
-    SCOPE = os.environ['GOOGLE_OAUTH_SCOPE']
-    REDIRECT_URI = os.environ['GOOGLE_OAUTH_REDIRECT_URI']
-    API_KEY = os.environ['GOOGLE_API_KEY']
