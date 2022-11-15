@@ -45,7 +45,7 @@ class DAO:
 
     @contextmanager
     def execute_query(self):
-        yield self.__engine
+        yield self.__engine.execute
 
 
 dao = DAO()

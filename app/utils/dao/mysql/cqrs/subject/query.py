@@ -11,5 +11,5 @@ def query_subject_title_list_by_kind(kind: str):
             f"group by ts.name, ts.title;"
 
     with dao.execute_query() as engine:
-        return engine.execute(text(query)).all()
+        return engine(text(query)).all()
 

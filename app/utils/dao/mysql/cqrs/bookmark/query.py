@@ -11,6 +11,7 @@ def query_my_bookmark_list_by_id(user_id: UUID.hex):
           f" where user_id like UNHEX('{user_id}')"
 
     with dao.execute_query() as engine:
-        return engine.execute(text(
-            sql
-        )).all()
+        return engine(
+            text(
+                sql
+            )).all()
