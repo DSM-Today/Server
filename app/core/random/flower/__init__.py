@@ -9,11 +9,11 @@ flower_router = APIRouter(
 )
 
 
-@flower_router.post('/')
+@flower_router.post('/', status_code=status.HTTP_200_OK)
 def add_flower_bookmark(token: str = Depends(oauth2_scheme)):
     add_flower_to_bookmark(token)
 
 
-@flower_router.delete('/')
+@flower_router.delete('/', status_code=status.HTTP_204_NO_CONTENT)
 def delete_flower_bookmark(token: str = Depends(oauth2_scheme)):
     delete_my_flower_bookmark(token)
