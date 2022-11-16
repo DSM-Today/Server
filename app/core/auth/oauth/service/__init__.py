@@ -29,7 +29,9 @@ def register_or_login(oauth_type: str, id_token: str, response: Response):
 
     user_info = oauth.check_id_token_verify(id_token)
 
-    if user_exist_by_email(user_info['email']) is None:
+    user = query_user_by_email(user_info['email'])
+
+    if user is None:
         user = save_user(
             email=user_info['email'],
             name=user_info['name'],
@@ -40,8 +42,6 @@ def register_or_login(oauth_type: str, id_token: str, response: Response):
         response.status_code = 201
 
     else:
-        user = query_user_by_email(user_info['email'])
-
         response.status_code = 200
 
     refresh_token = generate_refresh_token(user.id.hex())
