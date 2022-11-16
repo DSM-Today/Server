@@ -22,6 +22,7 @@ from app.core.random import random_router
 from app.core.random.luck import luck_router
 from app.core.random.quiz import quiz_router
 from app.core.random.flower import flower_router
+from app.core.random.lion import lion_router
 
 
 def create_app():
@@ -52,6 +53,7 @@ def create_app():
     app.include_router(luck_router)
     app.include_router(quiz_router)
     app.include_router(flower_router)
+    app.include_router(lion_router)
 
     # information
     app.include_router(news_router)
