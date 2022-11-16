@@ -9,7 +9,7 @@ flower_router = APIRouter(
 )
 
 
-@flower_router.post('/', status_code=status.HTTP_200_OK)
+@flower_router.post('/', status_code=status.HTTP_201_CREATED)
 def add_flower_bookmark(token: str = Depends(oauth2_scheme)):
     add_flower_to_bookmark(token)
 
