@@ -2,11 +2,16 @@ from fastapi import Depends, APIRouter, status
 
 from app.utils.security import oauth2_scheme
 
-from app.core.random.lion.service import add_lion_to_bookmark, delete_my_lion_bookmark
+from app.core.random.lion.service import add_lion_to_bookmark, delete_my_lion_bookmark, query_lion_word
 
 lion_router = APIRouter(
     prefix='/random/lion'
 )
+
+
+@lion_router.get('/')
+def get_lion_word():
+    return query_lion_word()
 
 
 @lion_router.post('/', status_code=status.HTTP_201_CREATED)

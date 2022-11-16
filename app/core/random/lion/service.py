@@ -4,6 +4,12 @@ from app.utils.security.token import get_user_id
 
 from app.utils.dao.mysql.cqrs.bookmark.command import create_bookmark, delete_bookmark_by_user_id_and_name
 
+from app.utils.dao.mysql.cqrs.subject.random.lion_word.query import query_random_lion_word
+
+
+def query_lion_word():
+    return query_random_lion_word()
+
 
 def add_lion_to_bookmark(token: str):
     user_id = UUID(get_user_id(token)).hex
