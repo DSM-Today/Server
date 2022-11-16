@@ -19,6 +19,7 @@ from app.core.information.lotto import lotto_router
 
 from app.core.random import random_router
 from app.core.random.luck import luck_router
+from app.core.random.quiz import quiz_router
 
 
 def create_app():
@@ -46,6 +47,7 @@ def create_app():
     # random
     app.include_router(random_router)
     app.include_router(luck_router)
+    app.include_router(quiz_router)
 
     # information
     app.include_router(news_router)
