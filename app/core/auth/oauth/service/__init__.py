@@ -46,11 +46,6 @@ def register_or_login(oauth_type: str, id_token: str, response: Response):
 
     refresh_token = generate_refresh_token(user.id.hex())
 
-    set_ex(
-        ttl=timedelta(minutes=JWTConfig.REFRESH_EXPIRE * 1000),
-        uid=user.id.hex,
-        refresh_token=refresh_token
-    )
 
     return {
         "is_birthday_exist": False if user.birth_day is None else True,
