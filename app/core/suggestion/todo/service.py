@@ -7,7 +7,9 @@ from app.utils.dao.mysql.cqrs.subject.suggest.todo.command import add_my_todo
 def query_all_todo_list(token: str):
     user_id = get_user_id(token)
 
-    return query_todo_list(user_id)
+    return {
+        "todo_list": query_todo_list(user_id)
+    }
 
 
 def insert_to_my_todo(token: str, todo_id: str):
