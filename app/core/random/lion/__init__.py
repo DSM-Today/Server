@@ -9,11 +9,11 @@ lion_router = APIRouter(
 )
 
 
-@lion_router.post('/')
+@lion_router.post('/', status_code=status.HTTP_201_CREATED)
 def add_lion_bookmark(token: str = Depends(oauth2_scheme)):
     add_lion_to_bookmark(token)
 
 
-@lion_router.delete('/')
+@lion_router.delete('/', status_code=status.HTTP_204_NO_CONTENT)
 def delete_lion_bookmark(token: str = Depends(oauth2_scheme)):
     delete_my_lion_bookmark(token)
