@@ -9,7 +9,7 @@ lion_router = APIRouter(
 )
 
 
-@lion_router.get('/')
+@lion_router.get('/', status_code=status.HTTP_200_OK)
 def get_lion_word():
     return query_lion_word()
 
