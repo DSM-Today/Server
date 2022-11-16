@@ -3,11 +3,16 @@ from fastapi import APIRouter, Depends, status
 from app.utils import show_reason
 from app.utils.security import oauth2_scheme
 
-from app.core.suggestion.menu.service import add_menu_to_bookmark, delete_my_menu_bookmark
+from app.core.suggestion.menu.service import add_menu_to_bookmark, delete_my_menu_bookmark, get_random_cafe_menu
 
 menu_router = APIRouter(
     prefix='/suggest/menu'
 )
+
+
+@menu_router.get('/', status_code=status.HTTP_200_OK)
+def get_random_menu():
+    return get_random_cafe_menu()
 
 
 @menu_router.post('/', status_code=status.HTTP_201_CREATED)

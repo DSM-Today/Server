@@ -2,7 +2,13 @@ from uuid import uuid4, UUID
 
 from app.utils.security.token import get_user_id
 
+from app.utils.dao.mysql.cqrs.subject.suggest.menu.query import get_rand_menu
+
 from app.utils.dao.mysql.cqrs.bookmark.command import create_bookmark, delete_bookmark_by_user_id_and_name
+
+
+def get_random_cafe_menu():
+    return get_rand_menu()
 
 
 def add_menu_to_bookmark(token: str):
