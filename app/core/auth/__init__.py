@@ -11,7 +11,7 @@ auth_router = APIRouter(
 )
 
 
-@auth_router.put('/', status_code=status.HTTP_200_OK)
+@auth_router.put('/token', status_code=status.HTTP_200_OK)
 @show_reason
 def reissue_tokens(refresh_token: Union[str, None] = Header(default=None)):
     return reissue_both_token(refresh_token)
