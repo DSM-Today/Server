@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 
 from app.utils.security import oauth2_scheme
 
-from app.core.suggestion.todo.service import query_all_todo_list, insert_to_my_todo
+from app.core.suggestion.todo.service import query_all_todo_list, insert_to_my_todo, delete_from_my_todo_list
 
 todo_router = APIRouter(
     prefix='/suggest/todo'
@@ -26,4 +26,4 @@ def add_to_my_todo(todo_id: str, token: str = Depends(oauth2_scheme)):
 
 @todo_router.delete('/{todo_id}')
 def delete_from_my_todo(todo_id: str, token: str = Depends(oauth2_scheme)):
-    pass
+    delete_from_my_todo_list(token, todo_id)
