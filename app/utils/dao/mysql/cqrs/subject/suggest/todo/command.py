@@ -17,7 +17,6 @@ def add_my_todo(user_id: str, todo_id: str):
 
 def delete_todo_from_my_list(user_id: str, todo_id: str):
     with dao.session_scope() as session:
-        print(user_id, todo_id)
         session.query(MyTodo).filter(
             MyTodo.user_id == UUID(user_id).bytes,
             MyTodo.todo_id == UUID(todo_id).bytes
