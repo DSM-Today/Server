@@ -1,7 +1,10 @@
-from app.utils.dao.mysql.cqrs.subject.query import query_subject_title_list_by_kind
+from app.utils.security.token import get_user_id
+
+from app.utils.dao.mysql.cqrs.subject.query import query_subject_element_by_user_id_and_kind
 
 
-def query_suggest_subject_list():
+def query_suggest_subject_list(token):
+    user_id = get_user_id(token)
     return {
-        'suggest_subject_list': query_subject_title_list_by_kind('SUGGEST')
+        'suggest_subject_list': query_subject_element_by_user_id_and_kind(user_id, 'SUGGEST')
     }
