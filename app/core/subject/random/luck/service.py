@@ -6,7 +6,7 @@ from app.utils.security.token import get_user_id
 
 from app.utils.dataset.crawler.random.lucky import luck_crawler
 
-from app.utils.dao.mysql.cqrs.subject.comand import create_subject
+from app.utils.dao.mysql.subject.comand import create_subject
 from app.utils.dao.mysql.user.query import query_user_birth_by_id
 
 

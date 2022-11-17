@@ -2,9 +2,7 @@ from uuid import uuid4
 
 from app.core.subject.suggest.food import Food
 
-from app.utils.dataset.crawler.operation.food import food_crawler
-
-from app.utils.dao.mysql.cqrs.subject.comand import create_subject
+from app.utils.dao.mysql.subject.comand import create_subject
 
 from app.utils.dao.mysql.cqrs.subject.suggest.food.query import query_random_food
 

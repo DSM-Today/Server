@@ -4,7 +4,7 @@ from app.core.subject.suggest.webtoon import WebToon
 
 from app.utils.dataset.crawler.operation.webtoon import webtoon_crawler
 
-from app.utils.dao.mysql.cqrs.subject.comand import create_subject
+from app.utils.dao.mysql.subject.comand import create_subject
 
 
 def query_webtoon():

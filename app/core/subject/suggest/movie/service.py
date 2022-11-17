@@ -2,9 +2,8 @@ from uuid import uuid4
 
 from app.core.subject.suggest.movie import Movie
 
-from app.utils.dataset.crawler.operation.movie import movie_crawler
 from app.utils.dao.mysql.cqrs.subject.suggest.movie.query import query_random_movie
-from app.utils.dao.mysql.cqrs.subject.comand import create_subject
+from app.utils.dao.mysql.subject.comand import create_subject
 
 
 def query_movie():

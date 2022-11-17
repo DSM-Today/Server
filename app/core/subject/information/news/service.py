@@ -2,7 +2,7 @@ from uuid import uuid4
 
 from app.core.subject.information.news import News
 
-from app.utils.dao.mysql.cqrs.subject.comand import create_subject
+from app.utils.dao.mysql.subject.comand import create_subject
 
 from app.utils.dataset.crawler.information.news import news_crawler
 

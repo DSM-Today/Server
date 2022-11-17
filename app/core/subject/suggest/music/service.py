@@ -4,7 +4,7 @@ from app.core.subject.suggest.music import Music
 
 from app.utils.dataset.crawler.operation.music import music_crawler
 
-from app.utils.dao.mysql.cqrs.subject.comand import create_subject
+from app.utils.dao.mysql.subject.comand import create_subject
 
 
 def query_music():

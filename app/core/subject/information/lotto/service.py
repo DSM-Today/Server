@@ -4,7 +4,7 @@ from app.utils.type_changer import str_to_date
 
 from app.utils.dataset.crawler.information.lotto import lotto_crawler
 
-from app.utils.dao.mysql.cqrs.subject.comand import create_subject
+from app.utils.dao.mysql.subject.comand import create_subject
 
 from app.core.subject.information.lotto import Lotto
 
