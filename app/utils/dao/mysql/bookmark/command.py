@@ -1,6 +1,6 @@
 from uuid import UUID
 from app.utils.dao.mysql.cqrs import dao
-from app.utils.dao.mysql.model.bookmark import Bookmark
+from app.utils.dao.mysql.bookmark import Bookmark
 
 from sqlalchemy.sql import text
 
