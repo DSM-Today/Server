@@ -2,7 +2,7 @@ from uuid import uuid4
 
 from app.core.subject.random.person import Person
 
-from app.utils.dao.mysql.cqrs.user.query import query_random_user
+from app.utils.dao.mysql.user.query import query_random_user
 from app.utils.dao.mysql.cqrs.subject.comand import create_subject
 
 

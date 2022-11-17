@@ -5,7 +5,7 @@ from sqlalchemy.sql import func
 
 from app.utils.dao.mysql.cqrs import dao
 
-from app.utils.dao.mysql.model.user import User
+from app.utils.dao.mysql.user import User
 
 
 def user_exist_by_email(email: str):

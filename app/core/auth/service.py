@@ -7,7 +7,7 @@ from app.config import JWTConfig
 from app.utils.dao.redis.command import set_ex
 from app.utils.dao.redis.query import get_value_by_user_id
 
-from app.utils.dao.mysql.cqrs.user.query import query_user_by_id
+from app.utils.dao.mysql.user.query import query_user_by_id
 
 from app.utils.security.token import is_refresh_token, get_user_id, generate_access_token, generate_refresh_token
 
