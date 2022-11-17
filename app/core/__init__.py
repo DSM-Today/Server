@@ -11,7 +11,7 @@ class Suggestion:
 
     class Menu:
         NAME = 'MENU'
-        TITLE = '오늘의 메뉴'
+        TITLE = '오늘의 카페 메뉴'
 
     class Movie:
         NAME = 'MOVIE'
