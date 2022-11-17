@@ -1,6 +1,7 @@
 from app.utils.security.token import get_user_id
 
-from app.utils.dao.mysql.subject.suggest.todo.query import query_todo_list, query_my_todo_list
+from app.utils.dao.mysql.subject.suggest.todo.query import query_todo_list
+from app.utils.dao.mysql.subject.suggest.todo.my_todo.query import query_my_todo_list
 from app.utils.dao.mysql.subject.suggest.todo.my_todo.command import add_my_todo, delete_todo_from_my_list
 
 
