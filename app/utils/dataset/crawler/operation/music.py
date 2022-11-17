@@ -3,6 +3,8 @@ from requests import get
 from random import randint
 from typing import Optional
 
+from app.utils.type_changer import str_to_date
+
 
 def generate_random_int(maximum: int, minimum: Optional[int] = None):
     minimum = 1 if minimum is None else minimum
@@ -46,7 +48,7 @@ class Music:
             f'https://www.music-flo.com/api/display/v1/browser/SITTN/{self._situation_id}?sortType=RECOMMEND'
         ).json()['data']['chnlList']
 
-        random_int = generate_random_int(len(channel_list))
+        random_int = generate_random_int(len(channel_list) - 1)
 
         return channel_list[random_int]['id']
 
@@ -61,9 +63,9 @@ class Music:
         track = playlist_detail['trackList'][random_int]
         return {
             'situation': self._situation + ' 중에 듣기 좋아요!!',
-            'direct_url': f"https://www.music-flo.com/search/theme?keyword={playlist_detail['name']}&sortType=ACCURACY",
+            'direct_url': f"https://www.music-flo.com/search/theme?keyword={playlist_detail['name'].replace(' ','%20')}&sortType=ACCURACY",
             'image_path': track['album']['imgList'][2]['url'],
-            'published_at': track['album']['releaseYmd'],
+            'published_at': str_to_date(track['album']['releaseYmd']),
             'title': track['name'],
             'song_writer': track['representationArtist']['name']
         }
