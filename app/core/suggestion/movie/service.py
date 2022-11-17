@@ -5,6 +5,7 @@ from app.core import Suggestion
 from app.utils.security.token import get_user_id
 
 from app.utils.dataset.crawler.operation.movie import movie_crawler
+from app.utils.dao.mysql.cqrs.subject.suggest.movie.query import query_random_movie
 from app.utils.dao.mysql.cqrs.subject.comand import create_subject
 from app.utils.dao.mysql.cqrs.bookmark.command import create_bookmark, delete_bookmark_by_user_id_and_name
 
@@ -14,7 +15,9 @@ Movie = Suggestion.Movie
 def query_movie():
     create_subject(uuid4().bytes, name=Movie.NAME, title=Movie.TITLE, kind=Suggestion.KIND)
 
-    return movie_crawler.crawl()
+    return query_random_movie()
+
+#    return movie_crawler.crawl()
 
 
 def add_movie_to_bookmark(token: str):
