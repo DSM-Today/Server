@@ -1,6 +1,8 @@
 from requests import get
 from bs4 import BeautifulSoup as bs4
 
+from app.utils.type_changer import str_to_date, str_to_day
+
 
 class Lucky:
 
@@ -36,9 +38,12 @@ class Lucky:
 
         response = self._get_response(star)
 
+        start_at, end_at = self._date_list[star]
+
         return {
             'name': self._star_list[star],
-            'period': self._date_list[star],
+            'start_at': str_to_day(start_at),
+            'end_at': str_to_day(end_at),
             'content': self._parse(response)
         }
 
