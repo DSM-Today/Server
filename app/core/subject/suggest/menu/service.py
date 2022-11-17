@@ -1,4 +1,4 @@
-from app.utils.dao.mysql.subject.suggest.menu import get_rand_menu
+from app.utils.dao.mysql.subject.suggest.menu.query import get_rand_menu
 
 
 def get_random_cafe_menu():
