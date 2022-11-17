@@ -1,7 +1,7 @@
 from requests import get
 from bs4 import BeautifulSoup as bs4
 
-from app.utils.type_changer import str_to_date, str_to_day
+from app.utils.type_changer import str_to_month_with_day
 
 
 class Lucky:
@@ -42,8 +42,8 @@ class Lucky:
 
         return {
             'name': self._star_list[star],
-            'start_at': str_to_day(start_at),
-            'end_at': str_to_day(end_at),
+            'start_at': str_to_month_with_day(start_at),
+            'end_at': str_to_month_with_day(end_at),
             'content': self._parse(response)
         }
 
