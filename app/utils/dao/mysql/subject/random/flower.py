@@ -1,6 +1,6 @@
 from sqlalchemy import Column, ForeignKey, VARCHAR
 
-from app.utils.dao.mysql.model import Base
+from app.utils.dao.mysql import Base
 
 
 class Flower(Base):

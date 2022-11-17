@@ -2,7 +2,7 @@ from sqlalchemy.sql import func
 
 from app.utils.dao.mysql.cqrs import dao
 
-from app.utils.dao.mysql.model.subject.random.lion_word import LionWord
+from app.utils.dao.mysql.subject.random import LionWord
 
 
 def query_random_lion_word():

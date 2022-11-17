@@ -1,6 +1,6 @@
 from sqlalchemy import Column, BINARY, CHAR, VARCHAR, DATE, BOOLEAN
 
-from app.utils.dao.mysql.model import Base
+from app.utils.dao.mysql import Base
 
 
 class User(Base):

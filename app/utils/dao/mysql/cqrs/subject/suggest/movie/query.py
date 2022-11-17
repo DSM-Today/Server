@@ -1,7 +1,7 @@
 from sqlalchemy.sql import func
 from app.utils.dao.mysql.cqrs import dao
 
-from app.utils.dao.mysql.model.subject.suggest.movie import Movie
+from app.utils.dao.mysql.subject.suggest.movie import Movie
 
 
 def query_random_movie():

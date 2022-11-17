@@ -1,7 +1,7 @@
 from sqlalchemy.sql import func
 
 from app.utils.dao.mysql.cqrs import dao
-from app.utils.dao.mysql.model.subject.suggest.food import Food
+from app.utils.dao.mysql.subject.suggest.food import Food
 
 
 def query_random_food():

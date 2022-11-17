@@ -2,7 +2,7 @@ from sqlalchemy.sql import func
 
 from app.utils.dao.mysql.cqrs import dao
 
-from app.utils.dao.mysql.model.subject.random.flower import Flower
+from app.utils.dao.mysql.subject.random import Flower
 
 
 def query_random_flower():

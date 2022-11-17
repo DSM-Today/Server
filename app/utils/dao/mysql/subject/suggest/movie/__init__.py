@@ -1,6 +1,6 @@
 from sqlalchemy import ForeignKey, Column, VARCHAR, TEXT
 
-from app.utils.dao.mysql.model import Base
+from app.utils.dao.mysql import Base
 
 
 class Movie(Base):

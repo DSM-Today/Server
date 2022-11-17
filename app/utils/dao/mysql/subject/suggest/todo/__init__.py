@@ -1,4 +1,4 @@
-from app.utils.dao.mysql.model import Base
+from app.utils.dao.mysql import Base
 
 from sqlalchemy import Column, ForeignKey, VARCHAR
 
