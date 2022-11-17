@@ -15,7 +15,7 @@ from app.core.suggestion.menu import menu_router
 from app.core.suggestion.todo import todo_router
 
 from app.core.subject.information.view import information_router
-from app.core.information.news import news_router
+from app.core.subject.information.news.view import news_router
 from app.core.subject.information.lotto.view import lotto_router
 
 from app.core.random import random_router
