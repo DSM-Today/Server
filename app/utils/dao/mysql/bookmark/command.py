@@ -1,5 +1,5 @@
 from uuid import UUID
-from app.utils.dao.mysql.cqrs import dao
+from app.utils.dao.mysql import dao
 from app.utils.dao.mysql.bookmark import Bookmark
 
 from sqlalchemy.sql import text
