@@ -52,3 +52,15 @@ class Random:
     class Quiz:
         NAME = 'QUIZ'
         TITLE = '오늘의 퀴즈'
+
+
+class Information:
+    KIND = 'INFORMATION'
+
+    class News:
+        NAME = 'NAME'
+        TITLE = '오늘의 뉴스'
+
+    class Lotto:
+        NAME = 'LOTTO'
+        TITLE = '오늘의 로또'
