@@ -4,7 +4,7 @@ from app.core.subject.suggest.food import Food
 
 from app.utils.dao.mysql.subject.comand import create_subject
 
-from app.utils.dao.mysql.cqrs.subject.suggest.food.query import query_random_food
+from app.utils.dao.mysql.subject.suggest.food.query import query_random_food
 
 
 def query_food():
