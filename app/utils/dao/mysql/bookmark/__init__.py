@@ -1,7 +1,7 @@
 from sqlalchemy import ForeignKey, Column, CHAR
 from sqlalchemy.orm import relationship
 
-from app.utils.dao.mysql.model import Base
+from app.utils.dao.mysql import Base
 
 
 class Bookmark(Base):
