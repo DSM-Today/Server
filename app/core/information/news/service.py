@@ -30,4 +30,4 @@ def insert_news_bookmark(token: str):
 def delete_my_news_bookmark(token: str):
     user_id = UUID(get_user_id(token)).hex
 
-    delete_bookmark_by_user_id_and_name(user_id, 'NEWS')
+    delete_bookmark_by_user_id_and_name(user_id, News.NAME)
