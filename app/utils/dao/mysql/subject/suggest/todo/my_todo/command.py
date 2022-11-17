@@ -1,6 +1,6 @@
 from uuid import UUID
 
-from app.utils.dao.mysql.cqrs import dao
+from app.utils.dao.mysql import dao
 
 from app.utils.dao.mysql.subject.suggest.todo.my_todo import MyTodo
 

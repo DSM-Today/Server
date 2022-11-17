@@ -1,5 +1,5 @@
 from sqlalchemy.sql import func
-from app.utils.dao.mysql.cqrs import dao
+from app.utils.dao.mysql import dao
 
 from app.utils.dao.mysql.subject.suggest.movie import Movie
 

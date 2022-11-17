@@ -2,7 +2,7 @@ from uuid import UUID
 
 from sqlalchemy import text
 
-from app.utils.dao.mysql.cqrs import dao
+from app.utils.dao.mysql import dao
 
 
 def query_subject_element_by_user_id_and_kind(user_id: UUID.hex, kind: str):

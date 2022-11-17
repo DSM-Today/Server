@@ -1,6 +1,6 @@
 from sqlalchemy.sql import text
 
-from app.utils.dao.mysql.cqrs import dao
+from app.utils.dao.mysql import dao
 
 
 def get_rand_quiz():

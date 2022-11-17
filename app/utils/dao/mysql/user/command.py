@@ -1,7 +1,7 @@
 from uuid import uuid4, UUID
 from datetime import date
 
-from app.utils.dao.mysql.cqrs import dao
+from app.utils.dao.mysql import dao
 from app.utils.dao.mysql.user import User
 
 

@@ -1,6 +1,6 @@
 from sqlalchemy.sql import text
 
-from app.utils.dao.mysql.cqrs import dao
+from app.utils.dao.mysql import dao
 
 
 def query_my_todo_list(user_id: str):
