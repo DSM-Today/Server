@@ -14,7 +14,7 @@ from app.core.suggestion.movie import movie_router
 from app.core.suggestion.menu import menu_router
 from app.core.suggestion.todo import todo_router
 
-from app.core.information import information_router
+from app.core.subject.information.view import information_router
 from app.core.information.news import news_router
 from app.core.information.lotto import lotto_router
 
