@@ -5,7 +5,7 @@ from app.utils.security import oauth2_scheme
 from app.core.bookmark.service import add_new_bookmark, delete_my_bookmark
 
 bookmark_router = APIRouter(
-    prefix='/bookmark'
+    prefix='/bookmarks'
 )
 
 

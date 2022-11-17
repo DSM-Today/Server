@@ -25,6 +25,12 @@ from app.core.subject.random.luck.view import luck_router
 from app.core.subject.random.flower.view import flower_router
 from app.core.subject.random.person.view import person_router
 
+from app.core.bookmark.view import bookmark_router
+
+
+def _include_bookmark_router(app: FastAPI):
+    app.include_router(bookmark_router)
+
 
 def _include_auth_router(app: FastAPI):
     app.include_router(auth_router)
@@ -69,5 +75,6 @@ def create_app():
     _include_suggest_router(app)
     _include_user_router(app)
     _include_auth_router(app)
+    _include_bookmark_router(app)
 
     return app
