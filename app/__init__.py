@@ -12,7 +12,7 @@ from app.core.subject.suggest.webtoon.view import webtoon_router
 from app.core.suggestion.music import music_router
 from app.core.suggestion.movie import movie_router
 from app.core.suggestion.menu import menu_router
-from app.core.suggestion.todo import todo_router
+from app.core.subject.suggest.todo.view import todo_router
 
 from app.core.subject.information.view import information_router
 from app.core.subject.information.news.view import news_router
