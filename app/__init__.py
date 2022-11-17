@@ -23,7 +23,7 @@ from app.core.random.luck import luck_router
 from app.core.subject.random.quiz.view import quiz_router
 from app.core.subject.random.flower.view import flower_router
 from app.core.random.lion import lion_router
-from app.core.random.person import person_router
+from app.core.subject.random.person.view import person_router
 
 
 def _include_auth_router(app: FastAPI):
