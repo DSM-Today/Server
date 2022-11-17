@@ -8,7 +8,7 @@ from app.core.user import user_router
 from app.core.subject.suggest.view import suggest_router
 from app.core.suggestion.book import book_router
 from app.core.suggestion.food import food_router
-from app.core.suggestion.webtoon import webtoon_router
+from app.core.subject.suggest.webtoon.view import webtoon_router
 from app.core.suggestion.music import music_router
 from app.core.suggestion.movie import movie_router
 from app.core.suggestion.menu import menu_router
