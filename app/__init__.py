@@ -18,7 +18,7 @@ from app.core.subject.information.view import information_router
 from app.core.subject.information.news.view import news_router
 from app.core.subject.information.lotto.view import lotto_router
 
-from app.core.random import random_router
+from app.core.subject.random.view import random_router
 from app.core.random.luck import luck_router
 from app.core.random.quiz import quiz_router
 from app.core.random.flower import flower_router

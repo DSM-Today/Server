@@ -4,7 +4,7 @@ from app.utils import show_reason
 
 from app.utils.security import oauth2_scheme
 
-from app.core.random.service import query_random_subject_list
+from app.core.subject.random.service import query_random_subject_list
 
 random_router = APIRouter(
     prefix='/random'
