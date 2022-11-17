@@ -9,13 +9,17 @@ from app.utils.dataset.crawler.operation.food import food_crawler
 from app.utils.dao.mysql.cqrs.subject.comand import create_subject
 from app.utils.dao.mysql.cqrs.bookmark.command import create_bookmark, delete_bookmark_by_user_id_and_name
 
+from app.utils.dao.mysql.cqrs.subject.suggest.food.query import query_random_food
+
 Food = Suggestion.Food
 
 
 def query_food():
     create_subject(uuid4().bytes, name=Food.NAME, title=Food.TITLE, kind=Suggestion.KIND)
 
-    return food_crawler.crawl()
+    return query_random_food()
+
+    # return food_crawler.crawl()
 
 
 def add_food_to_bookmark(token: str):
