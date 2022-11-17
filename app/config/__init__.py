@@ -10,6 +10,11 @@ def get_chromedriver_path():
     return os.environ['CHROMEDRIVER_PATH']
 
 
+class AWSConfig:
+    ACCESS_KEY = os.environ['AWS_ACCESS_KEY']
+    SECRET_KEY = os.environ['AWS_SECRET_KEY']
+
+
 class DatabaseConfig:
     DATABASE_URL = os.environ['DATABASE_URL']
 
