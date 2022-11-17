@@ -58,7 +58,7 @@ class Information:
     KIND = 'INFORMATION'
 
     class News:
-        NAME = 'NAME'
+        NAME = 'NEWS'
         TITLE = '오늘의 뉴스'
 
     class Lotto:
