@@ -26,20 +26,16 @@ from app.core.random.lion import lion_router
 from app.core.random.person import person_router
 
 
-def create_app():
-    app = FastAPI(
-        docs_url='/swagger',
-        redoc_url='/redoc'
-    )
-
-    # auth
+def _include_auth_router(app: FastAPI):
     app.include_router(auth_router)
     app.include_router(oauth_router)
 
-    # user
+
+def _include_user_router(app: FastAPI):
     app.include_router(user_router)
 
-    # suggest
+
+def _include_suggest_router(app: FastAPI):
     app.include_router(suggest_router)
     app.include_router(book_router)
     app.include_router(food_router)
@@ -49,7 +45,8 @@ def create_app():
     app.include_router(menu_router)
     app.include_router(todo_router)
 
-    # random
+
+def _include_random_routers(app: FastAPI):
     app.include_router(random_router)
     app.include_router(luck_router)
     app.include_router(quiz_router)
@@ -57,9 +54,20 @@ def create_app():
     app.include_router(lion_router)
     app.include_router(person_router)
 
-    # information
+
+def _include_information_routers(app: FastAPI):
     app.include_router(news_router)
     app.include_router(lotto_router)
     app.include_router(information_router)
+
+
+def create_app():
+    app = FastAPI()
+
+    _include_information_routers(app)
+    _include_random_routers(app)
+    _include_suggest_router(app)
+    _include_user_router(app)
+    _include_auth_router(app)
 
     return app
