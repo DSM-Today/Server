@@ -1,4 +1,4 @@
-from sqlalchemy import ForeignKey, Column, VARCHAR
+from sqlalchemy import ForeignKey, Column, VARCHAR, TEXT
 
 from app.utils.dao.mysql.model import Base
 
@@ -9,6 +9,6 @@ class Movie(Base):
 
     id = Column(ForeignKey('tbl_subject.id'), primary_key=True)
     image_path = Column(VARCHAR(255), nullable=False)
-    title = Column(VARCHAR(255), nullable=False)
-    content = Column(VARCHAR(255), nullable=False)
-    direct_url = Column(VARCHAR(255), nullable=False)
+    name = Column(VARCHAR(255), nullable=False)
+    content = Column(TEXT, nullable=False)
+    url = Column(VARCHAR(255), nullable=False)
