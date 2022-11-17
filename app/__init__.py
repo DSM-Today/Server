@@ -10,7 +10,7 @@ from app.core.suggestion.book import book_router
 from app.core.suggestion.food import food_router
 from app.core.subject.suggest.webtoon.view import webtoon_router
 from app.core.subject.suggest.music.view import music_router
-from app.core.suggestion.movie import movie_router
+from app.core.subject.suggest.movie.view import movie_router
 from app.core.suggestion.menu import menu_router
 from app.core.subject.suggest.todo.view import todo_router
 
