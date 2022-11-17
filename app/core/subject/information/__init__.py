@@ -1,5 +1,5 @@
 from app.core.subject import Subject
 
 
-class INFORMATION(Subject):
+class Information(Subject):
     KIND = 'INFORMATION'
