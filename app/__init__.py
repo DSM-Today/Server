@@ -6,7 +6,7 @@ from app.core.auth.oauth import oauth_router
 from app.core.user import user_router
 
 from app.core.subject.suggest.view import suggest_router
-from app.core.suggestion.book import book_router
+from app.core.subject.suggest.book.view import book_router
 from app.core.suggestion.food import food_router
 from app.core.subject.suggest.webtoon.view import webtoon_router
 from app.core.subject.suggest.music.view import music_router
