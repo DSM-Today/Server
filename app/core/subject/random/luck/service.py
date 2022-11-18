@@ -18,5 +18,5 @@ def query_user_luck(token: str):
     birth = query_user_birth_by_id(user_id)
 
     return luck_crawler.crawl(
-        int(str(birth.month) + str(birth.day))
+        int(birth.strftime('%m%d'))
     )
