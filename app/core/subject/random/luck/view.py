@@ -13,4 +13,5 @@ luck_router = APIRouter(
 @luck_router.get('/', status_code=status.HTTP_200_OK)
 @show_reason
 def get_my_luck(token: str = Depends(oauth2_scheme)):
+    print(token)
     return query_user_luck(token)
