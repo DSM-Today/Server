@@ -18,4 +18,6 @@ def upload_file_on_s3(file: UploadFile):
         ExtraArgs={'ContentType': 'image/jpeg'}
     )
 
-    return f'https://{S3Config.BUCKET_NAME}.s3.{S3Config.LOCATION}.amazonaws.com/{file.filename}'
+    return {
+        'image_path': f'https://{S3Config.BUCKET_NAME}.s3.{S3Config.LOCATION}.amazonaws.com/{file.filename}'
+    }
