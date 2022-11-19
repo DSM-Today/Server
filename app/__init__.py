@@ -27,6 +27,12 @@ from app.core.subject.random.person.view import person_router
 
 from app.core.bookmark.view import bookmark_router
 
+from app.core.image.view import image_router
+
+
+def _include_image_router(app: FastAPI):
+    app.include_router(image_router)
+
 
 def _include_bookmark_router(app: FastAPI):
     app.include_router(bookmark_router)
@@ -76,5 +82,6 @@ def create_app():
     _include_user_router(app)
     _include_auth_router(app)
     _include_bookmark_router(app)
+    _include_image_router(app)
 
     return app
