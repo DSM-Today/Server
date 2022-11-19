@@ -15,6 +15,11 @@ class AWSConfig:
     SECRET_KEY = os.environ['AWS_SECRET_KEY']
 
 
+class S3Config(AWSConfig):
+    BUCKET_NAME = os.environ['BUCKET_NAME']
+    LOCATION = os.environ['LOCATION']
+
+
 class DatabaseConfig:
     DATABASE_URL = os.environ['DATABASE_URL']
 
