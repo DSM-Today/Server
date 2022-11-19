@@ -7,6 +7,6 @@ image_router = APIRouter(
 )
 
 
-@image_router.post('')
+@image_router.post('')                          # 인가가 필요할까? TODO
 def upload_file(file: UploadFile):
     return upload_file_on_s3(file)
