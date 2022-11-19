@@ -9,7 +9,8 @@ luck_router = APIRouter(
     prefix='/random'
 )
 
-@show_reason
+
 @luck_router.get('/lucky', status_code=status.HTTP_200_OK)
+@show_reason
 def get_my_luck(token: str = Depends(oauth2_scheme)):
     return query_user_luck(token)
