@@ -64,7 +64,7 @@ class Music:
         random_int = generate_random_int(playlist_detail['trackCount'] - 1)
         track = playlist_detail['trackList'][random_int]
         return {
-            'situation': self._situation + ' 중에 듣기 좋아요!!',
+            'situation': self._situation + ' 때 듣기 좋아요!!',
             'direct_url': f"https://www.music-flo.com/search/theme?keyword={playlist_detail['name'].replace(' ', '%20')}&sortType=ACCURACY",
             'image_path': track['album']['imgList'][2]['url'],
             'published_at': str_to_date(track['album']['releaseYmd']),
