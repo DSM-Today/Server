@@ -35,7 +35,8 @@ class Lucky:
             'https://user-images.githubusercontent.com/80697064/202733801-41d66efa-74c7-4ce2-9bf7-f74c357ecef4.png',
             'https://user-images.githubusercontent.com/80697064/202733791-84fbb8b1-3560-4391-9ead-88f3d12dc36c.png',
             'https://user-images.githubusercontent.com/80697064/202733774-2fd6d4f6-71b3-432e-9540-f0a9bf624eda.png',
-            'https://user-images.githubusercontent.com/80697064/202733756-ca20a30a-46ef-49d1-bc72-3bf640373d7e.png'
+            'https://user-images.githubusercontent.com/80697064/202733756-ca20a30a-46ef-49d1-bc72-3bf640373d7e.png',
+            'https://user-images.githubusercontent.com/80697064/203261670-74de5869-7537-4849-8d27-41bc2334e80d.png'
         ]
 
     def crawl(self, mmdd: int):
@@ -53,7 +54,6 @@ class Lucky:
         response = self._get_response(star)
 
         start_at, end_at = self._date_list[star]
-
         return {
             'name': self._star_list[star],
             'start_at': str_to_month_with_day(start_at),
