@@ -14,13 +14,10 @@ def generate_random_int(maximum: int, minimum: Optional[int] = None):
 class Music:
 
     def __init__(self):
-        situation_id_list = [1, 4, 11, 12, 2, 13, 5, 6, 14, 15, 3, 17, 18, 19, 10, 122, 123]
-        situation_name_list = ['드라이브', '공부/독서', '사랑', '이별', '운동/헬스', '산책/여행', '아침', '밤/새벽', '카페', '휴식/힐링', '출/퇴근',
-                               '혼술/혼밥', '내 방', '노래방', '호텔/라운지', '펍/바', '일/작업']
-        random_int = generate_random_int(len(situation_name_list) - 1)
+        self._situation_id_list = [1, 4, 11, 12, 2, 13, 5, 6, 14, 15, 3, 17, 18, 19, 10, 122, 123]
+        self._situation_name_list = ['드라이브', '공부/독서', '사랑', '이별', '운동/헬스', '산책/여행', '아침', '밤/새벽', '카페', '휴식/힐링', '출/퇴근',
+                                     '혼술/혼밥', '내 방', '노래방', '호텔/라운지', '펍/바', '일/작업']
 
-        self._situation = situation_name_list[random_int]
-        self._situation_id = situation_id_list[random_int]
 
     def crawl(self):
         '''
@@ -37,6 +34,11 @@ class Music:
             song_writer: 작곡가
         }:
         '''
+        random_int = generate_random_int(len(self._situation_name_list) - 1)
+
+        self._situation = self._situation_name_list[random_int]
+        self._situation_id = self._situation_id_list[random_int]
+
         channel_id = self._get_random_playlist_id()
 
         playlist_detail = self._get_playlist_detail(channel_id)
@@ -63,7 +65,7 @@ class Music:
         track = playlist_detail['trackList'][random_int]
         return {
             'situation': self._situation + ' 중에 듣기 좋아요!!',
-            'direct_url': f"https://www.music-flo.com/search/theme?keyword={playlist_detail['name'].replace(' ','%20')}&sortType=ACCURACY",
+            'direct_url': f"https://www.music-flo.com/search/theme?keyword={playlist_detail['name'].replace(' ', '%20')}&sortType=ACCURACY",
             'image_path': track['album']['imgList'][2]['url'],
             'published_at': str_to_date(track['album']['releaseYmd']),
             'title': track['name'],
