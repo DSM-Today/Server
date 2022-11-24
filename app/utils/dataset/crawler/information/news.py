@@ -5,13 +5,9 @@ from bs4 import BeautifulSoup as bs
 class News:
 
     def __init__(self):
-        url = 'https://news.naver.com/'
+        self.url = 'https://news.naver.com/'
 
-        response = requests.get(url)
 
-        html_text = response.text
-
-        self._soup = bs(html_text, "html.parser")
 
     def crawl(self):
         '''
@@ -23,7 +19,13 @@ class News:
         }:
         '''
 
-        arr = self._soup.findAll("div", class_="cjs_journal_wrap _item_contents")
+        response = requests.get(self.url)
+
+        html_text = response.text
+
+        _soup = bs(html_text, "html.parser")
+
+        arr = _soup.findAll("div", class_="cjs_journal_wrap _item_contents")
         link = arr[0].find_next("a", class_="cjs_news_a _cds_link _editn_link")['href']
         image = arr[0].find_next("img")['src']
         title = arr[0].find_next("div", class_="cjs_t").text
