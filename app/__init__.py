@@ -6,7 +6,7 @@ from app.core.auth.oauth import oauth_router
 from app.core.user import include_user_router
 
 from app.core.subject.random import include_random_routers
-from app.core.subject.suggest import include_suggest_router
+from app.core.subject.suggest import include_suggest_routers
 
 from app.core.subject.information.view import information_router
 from app.core.subject.information.news.view import news_router
@@ -41,7 +41,7 @@ def create_app():
 
     _include_information_routers(app)
     include_random_routers(app)
-    include_suggest_router(app)
+    include_suggest_routers(app)
 
     _include_auth_router(app)
     _include_bookmark_router(app)

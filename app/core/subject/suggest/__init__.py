@@ -7,7 +7,7 @@ class Suggest(Subject):
     KIND = 'SUGGEST'
 
 
-def include_suggest_router(app: FastAPI):
+def include_suggest_routers(app: FastAPI):
     from app.core.subject.suggest.view import suggest_router
     from app.core.subject.suggest.book.view import book_router
     from app.core.subject.suggest.food.view import food_router
