@@ -1,17 +1,9 @@
-from typing import Union
-
-from fastapi import status, APIRouter, Header
-
-from app.utils import show_reason
-
-from app.core.auth.service import reissue_both_token
-
-auth_router = APIRouter(
-    prefix='/auth'
-)
+from fastapi import FastAPI
 
 
-@auth_router.put('/token', status_code=status.HTTP_200_OK)
-@show_reason
-def reissue_tokens(refresh_token: Union[str, None] = Header(default=None)):
-    return reissue_both_token(refresh_token)
+def include_auth_routers(app: FastAPI):
+    from app.core.auth.view import auth_router
+    from app.core.auth.oauth.view import oauth_router
+
+    app.include_router(auth_router)
+    app.include_router(oauth_router)

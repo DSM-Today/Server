@@ -1,72 +1,16 @@
 from fastapi import FastAPI
 
-from app.core.auth import auth_router
-from app.core.auth.oauth import oauth_router
-
 from app.core.user import include_user_router
 
-from app.core.subject.suggest.view import suggest_router
-from app.core.subject.suggest.book.view import book_router
-from app.core.subject.suggest.food.view import food_router
-from app.core.subject.suggest.todo.view import todo_router
-from app.core.subject.suggest.menu.view import menu_router
-from app.core.subject.suggest.music.view import music_router
-from app.core.subject.suggest.movie.view import movie_router
-from app.core.subject.suggest.webtoon.view import webtoon_router
+from app.core.auth import include_auth_routers
 
-from app.core.subject.information.view import information_router
-from app.core.subject.information.news.view import news_router
-from app.core.subject.information.lotto.view import lotto_router
+from app.core.image import include_image_router
 
-from app.core.subject.random.view import random_router
-from app.core.subject.random.quiz.view import quiz_router
-from app.core.subject.random.lion.view import lion_router
-from app.core.subject.random.luck.view import luck_router
-from app.core.subject.random.flower.view import flower_router
-from app.core.subject.random.person.view import person_router
+from app.core.bookmark import include_bookmark_router
 
-from app.core.bookmark.view import bookmark_router
-
-from app.core.image.view import image_router
-
-
-def _include_image_router(app: FastAPI):
-    app.include_router(image_router)
-
-
-def _include_bookmark_router(app: FastAPI):
-    app.include_router(bookmark_router)
-
-
-def _include_auth_router(app: FastAPI):
-    app.include_router(auth_router)
-    app.include_router(oauth_router)
-
-
-def _include_suggest_router(app: FastAPI):
-    app.include_router(suggest_router)
-    app.include_router(book_router)
-    app.include_router(food_router)
-    app.include_router(webtoon_router)
-    app.include_router(music_router)
-    app.include_router(movie_router)
-    app.include_router(menu_router)
-    app.include_router(todo_router)
-
-
-def _include_random_routers(app: FastAPI):
-    app.include_router(random_router)
-    app.include_router(luck_router)
-    app.include_router(quiz_router)
-    app.include_router(flower_router)
-    app.include_router(lion_router)
-    app.include_router(person_router)
-
-
-def _include_information_routers(app: FastAPI):
-    app.include_router(news_router)
-    app.include_router(lotto_router)
-    app.include_router(information_router)
+from app.core.subject.random import include_random_routers
+from app.core.subject.suggest import include_suggest_routers
+from app.core.subject.information import include_information_routers
 
 
 def create_app():
@@ -74,12 +18,14 @@ def create_app():
 
     include_user_router(app)
 
-    _include_information_routers(app)
-    _include_random_routers(app)
-    _include_suggest_router(app)
+    include_auth_routers(app)
 
-    _include_auth_router(app)
-    _include_bookmark_router(app)
-    _include_image_router(app)
+    include_image_router(app)
+
+    include_bookmark_router(app)
+
+    include_random_routers(app)
+    include_suggest_routers(app)
+    include_information_routers(app)
 
     return app
