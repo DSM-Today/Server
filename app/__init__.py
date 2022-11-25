@@ -5,14 +5,8 @@ from app.core.auth.oauth import oauth_router
 
 from app.core.user import include_user_router
 
-from app.core.subject.suggest.view import suggest_router
-from app.core.subject.suggest.book.view import book_router
-from app.core.subject.suggest.food.view import food_router
-from app.core.subject.suggest.todo.view import todo_router
-from app.core.subject.suggest.menu.view import menu_router
-from app.core.subject.suggest.music.view import music_router
-from app.core.subject.suggest.movie.view import movie_router
-from app.core.subject.suggest.webtoon.view import webtoon_router
+from app.core.subject.suggest import include_suggest_router
+
 
 from app.core.subject.information.view import information_router
 from app.core.subject.information.news.view import news_router
@@ -43,15 +37,6 @@ def _include_auth_router(app: FastAPI):
     app.include_router(oauth_router)
 
 
-def _include_suggest_router(app: FastAPI):
-    app.include_router(suggest_router)
-    app.include_router(book_router)
-    app.include_router(food_router)
-    app.include_router(webtoon_router)
-    app.include_router(music_router)
-    app.include_router(movie_router)
-    app.include_router(menu_router)
-    app.include_router(todo_router)
 
 
 def _include_random_routers(app: FastAPI):
@@ -76,7 +61,7 @@ def create_app():
 
     _include_information_routers(app)
     _include_random_routers(app)
-    _include_suggest_router(app)
+    include_suggest_router(app)
 
     _include_auth_router(app)
     _include_bookmark_router(app)
