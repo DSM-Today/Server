@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from app.core.auth import auth_router
 from app.core.auth.oauth import oauth_router
 
-from app.core.user import user_router
+from app.core.user import include_user_router
 
 from app.core.subject.suggest.view import suggest_router
 from app.core.subject.suggest.book.view import book_router
@@ -43,10 +43,6 @@ def _include_auth_router(app: FastAPI):
     app.include_router(oauth_router)
 
 
-def _include_user_router(app: FastAPI):
-    app.include_router(user_router)
-
-
 def _include_suggest_router(app: FastAPI):
     app.include_router(suggest_router)
     app.include_router(book_router)
@@ -76,10 +72,12 @@ def _include_information_routers(app: FastAPI):
 def create_app():
     app = FastAPI()
 
+    include_user_router(app)
+
     _include_information_routers(app)
     _include_random_routers(app)
     _include_suggest_router(app)
-    _include_user_router(app)
+
     _include_auth_router(app)
     _include_bookmark_router(app)
     _include_image_router(app)
