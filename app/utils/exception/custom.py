@@ -31,3 +31,12 @@ class RoleNotCorrect(HTTPException):
 
         self.detail = detail
         self.status_code = 403
+
+
+class SocketUnDefinedException(HTTPException):
+    def __init__(self, detail: Optional[str] = None):
+        if detail in [None, '', ' ']:
+            detail = 'SOCKET IS NOT DEFINED'
+
+        self.detail = detail
+        self.status_code = 500

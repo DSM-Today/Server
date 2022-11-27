@@ -15,6 +15,10 @@ class AWSConfig:
     SECRET_KEY = os.environ['AWS_SECRET_KEY']
 
 
+class SocketConfig:
+    PORT = 8000
+
+
 class S3Config(AWSConfig):
     BUCKET_NAME = os.environ['BUCKET_NAME']
     LOCATION = os.environ['LOCATION']

@@ -1,5 +1,9 @@
 from fastapi import FastAPI
 
+from app.utils.exception import initialize_exception_handler
+
+from app.core.chat import initialize_socket, include_chat_router
+
 from app.core.user import include_user_router
 
 from app.core.auth import include_auth_routers
@@ -11,7 +15,6 @@ from app.core.bookmark import include_bookmark_router
 from app.core.subject.random import include_random_routers
 from app.core.subject.suggest import include_suggest_routers
 from app.core.subject.information import include_information_routers
-from app.utils.exception import initialize_exception_handler
 
 
 def create_app():
@@ -19,6 +22,10 @@ def create_app():
 
     # exception
     initialize_exception_handler(app)
+
+    # chat
+    initialize_socket(app)
+    include_chat_router(app)
 
     # user router
     include_user_router(app)
