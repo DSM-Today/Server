@@ -1,8 +1,8 @@
 from datetime import timedelta
 
-from fastapi import HTTPException
-
 from app.config import JWTConfig
+
+from app.utils.exception.custom import InvalidTokenException
 
 from app.utils.dao.redis.command import set_ex
 from app.utils.dao.redis.query import get_value_by_user_id
@@ -19,10 +19,7 @@ def reissue_both_token(token: str):
     refresh_token = get_value_by_user_id(user_id)
 
     if (refresh_token is None) or (user is None) or not is_refresh_token(token):
-        raise HTTPException(
-            status_code=401,
-            detail="INVALID TOKEN"
-        )
+        raise InvalidTokenException
 
     issued_refresh_token = generate_refresh_token(user_id)
 

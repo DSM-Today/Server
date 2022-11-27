@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 import jwt
 
 from app.config import JWTConfig
+from app.utils.exception.custom import RoleNotCorrect
 
 
 def generate_access_token(user_id: UUID.hex):
@@ -48,8 +49,7 @@ def check_role(token: str, role_list: list):
     def decorator_impl(func):
         def wrapper():
             if __decode_jwt(token)['role'] not in role_list:
-                from fastapi import HTTPException
-                raise HTTPException(403, detail='역할이 올바르지 않습니다')
+                raise RoleNotCorrect
 
             return func
 
