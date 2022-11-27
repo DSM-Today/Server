@@ -1,6 +1,4 @@
-from fastapi import APIRouter, Depends, status
-
-from app.utils.security import oauth2_scheme
+from fastapi import APIRouter, status
 
 from app.core.subject.suggest.movie.service import query_movie
 

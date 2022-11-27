@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
 
-class DTO:
-    class IdTokenRequest(BaseModel):
+class Request:
+    class IdToken(BaseModel):
         id_token: str
