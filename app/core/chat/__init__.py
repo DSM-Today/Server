@@ -16,9 +16,3 @@ def socket_manager():
         raise SocketUnDefinedException
 
     return __socket_manager
-
-
-def include_chat_router(app: FastAPI):
-    from app.core.chat.view import chat_router
-
-    app.include_router(chat_router)
