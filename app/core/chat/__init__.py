@@ -1,18 +1,15 @@
 from fastapi import FastAPI
 from fastapi_socketio import SocketManager
 
-from app.utils.exception.custom import SocketUnDefinedException
-
-__socket_manager = None
+from app.core.chat.view import register_user_connect, register_user_unconnect,\
+    register_user_message, register_user_join_room, register_user_left_room
 
 
 def initialize_socket(app: FastAPI):
-    global __socket_manager
-    __socket_manager = SocketManager(app=app)
+    sio = SocketManager(app=app, mount_location='/', async_mode="asgi")
 
-
-def socket_manager():
-    if __socket_manager is None:
-        raise SocketUnDefinedException
-
-    return __socket_manager
+    register_user_connect(sio)
+    register_user_unconnect(sio)
+    register_user_join_room(sio)
+    register_user_left_room(sio)
+    register_user_message(sio)
