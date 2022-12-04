@@ -41,6 +41,14 @@ def get_user_id(token: str):
     return __decode_jwt(token)['uid']
 
 
+def get_user_name(token: str):
+    return __decode_jwt(token)['unm']
+
+
+def get_image_path(token: str):
+    return __decode_jwt(token)['image_path']
+
+
 def is_refresh_token(token: str):
     return __decode_jwt(token)['sub'] == JWTConfig.REFRESH_NAME
 
